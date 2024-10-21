@@ -1,0 +1,115 @@
+import { nextui } from "@nextui-org/theme";
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ["var(--font-sans)"],
+        mono: ["var(--font-mono)"],
+      },
+    },
+  },
+  darkMode: "class",
+  plugins: [
+    nextui({
+      themes: {
+        light: {
+          colors: {
+            background: "#FFFFFF",
+            foreground: "#11181C",
+            primary: {
+              50: "#eaf9fa",
+              100: "#d5f3f6",
+              200: "#ace7ec",
+              300: "#82dbe3",
+              400: "#59cfd9",
+              500: "#2fc2d0",
+              600: "#269ca6",
+              700: "#1c757d",
+              800: "#134e53",
+              900: "#09272a",
+              950: "#051315",
+            },
+            secondary: {
+              50: "#ebe9fc",
+              100: "#d8d2f9",
+              200: "#b1a5f3",
+              300: "#8a78ed",
+              400: "#634be7",
+              500: "#3c1fe0",
+              600: "#3018b4",
+              700: "#241287",
+              800: "#180c5a",
+              900: "#0c062d",
+              950: "#060316",
+            },
+            accent: {
+              50: "#f3e9fc",
+              100: "#e7d2f9",
+              200: "#cfa5f3",
+              300: "#b678ed",
+              400: "#9e4be7",
+              500: "#861fe0",
+              600: "#6b18b4",
+              700: "#501287",
+              800: "#360c5a",
+              900: "#1b062d",
+              950: "#0d0316",
+            },
+          },
+        },
+        dark: {
+          colors: {
+            background: "#000000",
+            foreground: "#ECEDEE",
+            primary: {
+              50: "#051315",
+              100: "#09272a",
+              200: "#134e53",
+              300: "#1c757d",
+              400: "#269ca6",
+              500: "#2fc2d0",
+              600: "#59cfd9",
+              700: "#82dbe3",
+              800: "#ace7ec",
+              900: "#d5f3f6",
+              950: "#eaf9fa",
+            },
+            secondary: {
+              50: "#060316",
+              100: "#0c062d",
+              200: "#180c5a",
+              300: "#241287",
+              400: "#3018b4",
+              500: "#3c1fe0",
+              600: "#634be7",
+              700: "#8a78ed",
+              800: "#b1a5f3",
+              900: "#d8d2f9",
+              950: "#ebe9fc",
+            },
+            accent: {
+              50: "#0d0316",
+              100: "#1b062d",
+              200: "#360c5a",
+              300: "#501287",
+              400: "#6b18b4",
+              500: "#861fe0",
+              600: "#9e4be7",
+              700: "#b678ed",
+              800: "#cfa5f3",
+              900: "#e7d2f9",
+              950: "#f3e9fc",
+            },
+          },
+        },
+      },
+    }),
+  ],
+};
