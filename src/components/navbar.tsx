@@ -50,6 +50,14 @@ export const Navbar = () => {
         <NavbarItem className="hidden sm:flex gap-2">
           <Link
             isExternal
+            aria-label="Resume"
+            className="p-2 border-3 rounded-lg border-gray text-default-foreground font-bold"
+            href="https://drive.google.com/file/d/1VfIjHS5ZL0G_836nnZgB0V_eaXhU3dJX/view"
+          >
+            Resume
+          </Link>
+          <Link
+            isExternal
             aria-label="Facebook"
             href={siteConfig.links.facebook}
           >
