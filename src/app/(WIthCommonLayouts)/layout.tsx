@@ -1,5 +1,4 @@
 import { Navbar } from "@/src/components/navbar";
-import Link from "next/link";
 import React from "react";
 
 const Commonlayout = ({ children }: { children: React.ReactNode }) => {
