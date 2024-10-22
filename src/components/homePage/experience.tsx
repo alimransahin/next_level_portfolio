@@ -35,12 +35,12 @@ const Experience: React.FC = () => {
       >
         Experience
       </h3>
-      <div className="p-12 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="py-4 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {experiences.map((experience, index) => (
           <Card
             key={index}
             // variant="bordered"
-            className="p-6 shadow-lg bg-gradient-to-tr from-blue-50 to-white dark:from-blue-900 dark:to-gray-900"
+            className="p-6 shadow-lg bg-gradient-to-tr from-primary-200 to-primary-50"
           >
             <h3 className="text-2xl font-semibold text-blue-600 dark:text-blue-300">
               {experience.title}

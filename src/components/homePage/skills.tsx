@@ -9,7 +9,7 @@ type SkillCategoryProps = {
 
 const SkillCategory: React.FC<SkillCategoryProps> = ({ title, skills }) => {
   return (
-    <Card className="p-6 shadow-lg bg-gradient-to-tr from-green-50 to-white dark:from-green-900 dark:to-gray-900">
+    <Card className="p-6 shadow-lg bg-gradient-to-tr from-primary-200 to-primary-50 ">
       <h3 className="text-2xl font-semibold text-green-600 dark:text-green-300">
         {title}
       </h3>
@@ -32,44 +32,76 @@ const Skills: React.FC = () => {
     {
       title: "Frontend Development",
       skills: [
-        { name: "React", imageUrl: "/images/react-icon.png" },
-        { name: "Next.js", imageUrl: "/images/nextjs-icon.png" },
-        { name: "TypeScript", imageUrl: "/images/typescript-icon.png" },
-        { name: "Tailwind CSS", imageUrl: "/images/tailwind-icon.png" },
-        { name: "HTML5", imageUrl: "/images/html5-icon.png" },
-        { name: "CSS3", imageUrl: "/images/css3-icon.png" },
+        { name: "HTML5", imageUrl: "https://i.ibb.co.com/RgGLyhD/HTML.png" },
+        { name: "CSS3", imageUrl: "https://i.ibb.co.com/0KHkCHs/CSS.png" },
+        {
+          name: "Bootstrap",
+          imageUrl: "https://i.ibb.co.com/0q61jJg/bootstrap.png",
+        },
+        {
+          name: "Tailwind CSS",
+          imageUrl: "https://i.ibb.co.com/Cz6wqwY/tailwind.png",
+        },
+        { name: "React", imageUrl: "https://i.ibb.co.com/jzDSJpm/react.png" },
+        {
+          name: "Next.js",
+          imageUrl: "https://i.ibb.co.com/1TcbwN3/nextjs.jpg",
+        },
+        {
+          name: "JavaScript",
+          imageUrl: "https://i.ibb.co.com/7kvV7Wc/javascript.png",
+        },
+        {
+          name: "TypeScript",
+          imageUrl: "https://i.ibb.co.com/JjQH21y/ts.webp",
+        },
       ],
     },
     {
       title: "Backend Development",
       skills: [
-        { name: "Node.js", imageUrl: "/images/nodejs-icon.png" },
-        { name: "Express", imageUrl: "/images/express-icon.png" },
-        { name: "MongoDB", imageUrl: "/images/mongodb-icon.png" },
-        { name: "Mongoose", imageUrl: "/images/mongoose-icon.png" },
-        { name: "REST API", imageUrl: "/images/rest-api-icon.png" },
+        { name: "Node.js", imageUrl: "https://i.ibb.co.com/dWkgH6S/node.png" },
+        {
+          name: "Express",
+          imageUrl: "https://i.ibb.co.com/YWWBS6q/express.png",
+        },
+        {
+          name: "MongoDB",
+          imageUrl: "https://i.ibb.co.com/7CBwBz2/mongodb.png",
+        },
+        {
+          name: "Mongoose",
+          imageUrl: "https://i.ibb.co.com/7CBwBz2/mongodb.png",
+        },
+        { name: "REST API", imageUrl: "https://i.ibb.co.com/SN1qHt5/rest.png" },
       ],
     },
     {
       title: "UI/UX Design",
       skills: [
-        { name: "Figma", imageUrl: "/images/figma-icon.png" },
-        { name: "Adobe XD", imageUrl: "/images/adobe-xd-icon.png" },
-        { name: "Sketch", imageUrl: "/images/sketch-icon.png" },
+        { name: "Figma", imageUrl: "https://i.ibb.co.com/23Xd2b0/figma.png" },
+        { name: "Adobe XD", imageUrl: "https://i.ibb.co.com/dW5RJbG/xd.webp" },
+
         {
           name: "Responsive Design",
-          imageUrl: "/images/responsive-design-icon.png",
+          imageUrl: "https://i.ibb.co.com/TMhM5Tw/dev.png",
         },
       ],
     },
     {
       title: "Tools & Platforms",
       skills: [
-        { name: "Git", imageUrl: "/images/git-icon.png" },
-        { name: "Docker", imageUrl: "/images/docker-icon.png" },
-        { name: "Jira", imageUrl: "/images/jira-icon.png" },
-        { name: "Postman", imageUrl: "/images/postman-icon.png" },
-        { name: "VS Code", imageUrl: "/images/vscode-icon.png" },
+        { name: "Git", imageUrl: "https://i.ibb.co.com/vX48VzV/github.png" },
+        { name: "Docker", imageUrl: "https://i.ibb.co.com/3sfqhqb/Docker.png" },
+
+        {
+          name: "Postman",
+          imageUrl: "https://i.ibb.co.com/pJN5QZZ/pngwing-com.png",
+        },
+        {
+          name: "VS Code",
+          imageUrl: "https://i.ibb.co.com/7bVVznQ/vscode.png",
+        },
       ],
     },
   ];
@@ -82,7 +114,7 @@ const Skills: React.FC = () => {
       >
         Skills
       </h3>
-      <div className="p-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className=" py-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {skillCategories.map((category, index) => (
           <SkillCategory
             key={index}

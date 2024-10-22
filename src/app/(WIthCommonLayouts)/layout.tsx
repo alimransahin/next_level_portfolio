@@ -1,3 +1,4 @@
+import Footer from "@/src/components/homePage/footer";
 import { Navbar } from "@/src/components/navbar";
 import React from "react";
 
@@ -8,9 +9,8 @@ const Commonlayout = ({ children }: { children: React.ReactNode }) => {
       <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
         {children}
       </main>
-      <footer className="w-full flex items-center justify-center py-3">
-        Footer
-      </footer>
+
+      <Footer />
     </div>
   );
 };
