@@ -109,7 +109,7 @@ const Skills: React.FC = () => {
   return (
     <div className="max-w-screen-xl mx-auto" id="skills">
       <h3
-        className="text-3xl text-center py-4 bg-gradient-to-r from-primary-100 font-bold rounded-md"
+        className="text-3xl  text-center  py-4 bg-gradient-to-r from-primary-100 to-secondary-100 font-bold rounded-md"
         style={{ fontFamily: "Josefin Sans, sans-serif" }}
       >
         Skills

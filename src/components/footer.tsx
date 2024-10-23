@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer
       id="contact"
-      className="max-w-screen-xl mx-auto p-6 bg-gradient-to-r from-gray-800 to-black text-white rounded-t-lg"
+      className=" mx-auto p-6  rounded-t-lg w-full bg-default-100"
     >
       {/* Footer Content */}
       <div className="flex flex-col md:flex-row justify-between items-center">

@@ -85,15 +85,15 @@ const projects = [
 const Projects = () => {
   console.log(projects);
   return (
-    <div className="mb-10 max-w-screen-xl mx-auto" id="projects">
+    <div className="max-w-screen-xl mx-auto" id="projects">
       <h3
-        className="text-3xl text-center py-4 bg-gradient-to-r from-primary-100 font-bold rounded-md"
+        className="text-3xl  text-center  py-4 bg-gradient-to-r from-primary-100 to-secondary-100 font-bold rounded-md"
         style={{ fontFamily: "Josefin Sans, sans-serif" }}
       >
         Projects
       </h3>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-4">
         {projects.map((project) => (
           <Card
             key={project.id}

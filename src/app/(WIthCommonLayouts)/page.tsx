@@ -11,14 +11,14 @@ import BlogSection from "@/src/components/homePage/blog";
 export default function Home() {
   return (
     <>
-      {/* <Banner />
+      <Banner />
       <AboutMe />
       <Experience />
       <Education />
       <Skills />
-      <Projects /> */}
-      {/* <Contact />
-      <Certificates /> */}
+      <Projects />
+      <Contact />
+      <Certificates />
       <BlogSection />
     </>
   );

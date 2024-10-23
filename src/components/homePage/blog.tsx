@@ -1,13 +1,16 @@
 const BlogSection = () => {
   return (
-    <div className="max-w-screen-xl mx-auto my-12" id="blog-section">
+    <div className="max-w-screen-xl mx-auto " id="blog-section">
       {/* Section Header */}
-      <h3 className="text-3xl text-center py-4 bg-gradient-to-r from-primary-100 font-bold rounded-md">
+      <h3
+        className="text-3xl  text-center  py-4 bg-gradient-to-r from-primary-100 to-secondary-100 font-bold rounded-md"
+        style={{ fontFamily: "Josefin Sans, sans-serif" }}
+      >
         Blog
       </h3>
 
       {/* Blog Posts Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
         {/* Blog Post 1 */}
         <div className="flex flex-col bg-default-100 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
           <img
@@ -81,7 +84,7 @@ const BlogSection = () => {
       </div>
 
       {/* More Blogs Button */}
-      <div className="text-center mt-12">
+      <div className="text-center my-4">
         <a
           href="/blog"
           className="bg-gradient-to-tr from-primary to-secondary text-white px-6 py-3 rounded-lg shadow-lg hover:bg-primary-700 transition-colors duration-300"
