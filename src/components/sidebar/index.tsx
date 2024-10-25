@@ -62,7 +62,7 @@ const Sidebar = () => {
 
   return (
     <div>
-      <aside className="w-64 bg-gray-800 text-white flex flex-col justify-between h-screen">
+      <aside className="w-64 bg-gray-800 text-white flex flex-col justify-between h-screen sticky">
         <div>
           <div className="my-6">
             <Link
