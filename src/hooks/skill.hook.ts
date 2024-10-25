@@ -1,21 +1,21 @@
 import { useState } from "react";
 import { toast } from "sonner";
-import { getAllBlog } from "../services/Blog";
+import { getAllSkill } from "../services/Skill";
 
-export const useGetBlog = () => {
+export const useGetSkill = () => {
   const [isPending, setIsPending] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<null | string>(null);
 
-  const handletBlog = async () => {
+  const handletSkill = async () => {
     setIsPending(true);
     setIsSuccess(false);
     setError(null);
 
     try {
-      const result = await getAllBlog();
+      const result = await getAllSkill();
       setIsSuccess(true);
-      return result;
+      return result; // Return the fetched data here
     } catch (err: any) {
       setError(err.message);
       toast.error(err.message);
@@ -24,5 +24,5 @@ export const useGetBlog = () => {
     }
   };
 
-  return { handletBlog, isPending, isSuccess, error };
+  return { handletSkill, isPending, isSuccess, error };
 };

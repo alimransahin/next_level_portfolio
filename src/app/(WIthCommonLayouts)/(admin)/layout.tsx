@@ -2,7 +2,7 @@ import Footer from "@/src/components/footer";
 import { Navbar } from "@/src/components/navbar";
 import Sidebar from "@/src/components/sidebar";
 import Link from "next/link";
-import React from "react";
+
 
 const Commonlayout = ({ children }: { children: React.ReactNode }) => {
   return (

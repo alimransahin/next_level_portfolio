@@ -1,6 +1,6 @@
 "use client";
 import { useUserLogin } from "@/src/hooks/auth.hook";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation"; // Use `next/navigation` for Next.js 13+
 
 const LoginForm: React.FC = () => {
@@ -29,8 +29,11 @@ const LoginForm: React.FC = () => {
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Email Input */}
           <div className="form-control">
-            <label className="block text-gray-700">Email</label>
+            <label htmlFor="email" className="block text-gray-700">
+              Email
+            </label>
             <input
+              id="email"
               type="email"
               placeholder="Enter your email"
               value={email}
@@ -41,8 +44,11 @@ const LoginForm: React.FC = () => {
 
           {/* Password Input */}
           <div className="form-control">
-            <label className="block text-gray-700">Password</label>
+            <label htmlFor="password" className="block  text-gray-700">
+              Password
+            </label>
             <input
+              id="password"
               type="password"
               placeholder="Enter your password"
               value={password}

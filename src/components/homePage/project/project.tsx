@@ -4,7 +4,7 @@ import { TProject } from "@/src/types";
 import { Card, CardBody, CardFooter } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import ProjectSkeleton from "./ProjectSkeleton";
 
 const Projects = () => {

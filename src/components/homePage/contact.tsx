@@ -1,7 +1,7 @@
 "use client";
 import { Mail, Map, MessageCircle, Phone } from "lucide-react";
 import Link from "next/link";
-import React, { useRef } from "react";
+import { useRef } from "react";
 // import emailjs from "@emailjs/browser";
 
 const Contact = () => {

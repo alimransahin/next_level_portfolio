@@ -5,10 +5,10 @@ const Footer = () => {
   return (
     <footer
       id="contact"
-      className=" mx-auto p-6  rounded-t-lg w-full bg-default-100"
+      className="  mx-auto p-6  rounded-t-lg w-full bg-primary-400"
     >
       {/* Footer Content */}
-      <div className="flex flex-col md:flex-row justify-between items-center">
+      <div className="flex flex-col md:flex-row justify-between items-center container mx-auto max-w-7xl  px-6 flex-grow">
         {/* Copyright */}
         <div className="mb-4 md:mb-0">
           <p className="text-sm md:text-base">© 2024 - All rights reserved</p>

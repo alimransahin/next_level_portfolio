@@ -27,3 +27,19 @@ export type TBlogPost = {
   isPublished: boolean;
   createdAt: string;
 };
+export type TSkill = {
+  _id: string;
+  name: string;
+  image: string;
+  category: string;
+  isDeleted: boolean;
+};
+export type TExperience = {
+  _id: string;
+  title: string;
+  role: string;
+  startTime: string;
+  endTime: string;
+  description: string;
+  isDeleted: boolean;
+};

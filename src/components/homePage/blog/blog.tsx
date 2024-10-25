@@ -9,14 +9,14 @@ const BlogSection = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchProjects = async () => {
+    const fetchBlogs = async () => {
       const result = await handletBlog();
       if (result) {
         setBlogs(result.data);
       }
       setIsLoading(false);
     };
-    fetchProjects();
+    fetchBlogs();
   }, []);
   const formatDate = (dateString: string): string => {
     const options: Intl.DateTimeFormatOptions = {

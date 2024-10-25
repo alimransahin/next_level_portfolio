@@ -1,42 +1,24 @@
 "use client";
 
-import { ReactNode } from "react";
-import Link from "next/link";
-import Sidebar from "@/src/components/sidebar";
+import { Rocket } from "lucide-react";
 
-const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
+const DashboardLayout = () => {
   return (
-    <p className="text-9xl">
-      Dashboard Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Explicabo tempora amet quibusdam quasi ratione saepe mollitia aut corporis
-      consectetur aperiam debitis possimus velit, corrupti magnam sint officiis
-      temporibus! Nesciunt, necessitatibus.
-    </p>
-    // <div className="min-h-screen flex">
-    //   {/* Sidebar */}
-    //   <Sidebar />
-
-    //   {/* Main content area */}
-    //   <div className="flex-1 flex flex-col">
-    //     {/* Header */}
-    //     <header className="bg-white shadow-sm p-4 flex justify-between items-center">
-    //       <Link href="/admin" className="text-2xl font-semibold text-gray-800">
-    //         Dashboard
-    //       </Link>
-    //       <div className="flex items-center space-x-4">
-    //         <span className="text-sm text-gray-600">Md. Al Imran</span>
-    //         <img
-    //           src="https://i.ibb.co.com/Xp5qBf4/imran.jpg"
-    //           alt="Profile"
-    //           className="w-10 h-10 rounded-full"
-    //         />
-    //       </div>
-    //     </header>
-
-    //     {/* Content */}
-    //     <main className="p-6 bg-gray-100 flex-1">{children}</main>
-    //   </div>
-    // </div>
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-tr from-primary-700 to-secondary-600 text-white">
+      <div className="text-center max-w-xl mx-4 p-10 bg-white bg-opacity-20 backdrop-blur-md rounded-xl shadow-lg">
+        <div className="flex flex-col items-center space-y-4">
+          <Rocket className="text-6xl text-yellow-300 animate-pulse" />
+          <h1 className="text-4xl font-extrabold text-gray-100">
+            Welcome to Your Dashboard!
+          </h1>
+          <p className="text-lg text-gray-200 max-w-md">
+            Discover, manage, and showcase your skills, projects, and
+            experiences. Customize your portfolio with a few clicks and track
+            your professional growth.
+          </p>
+        </div>
+      </div>
+    </div>
   );
 };
 

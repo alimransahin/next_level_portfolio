@@ -39,16 +39,9 @@ export async function middleware(request: NextRequest) {
     }
   }
 
-  return NextResponse.redirect(new URL("/", request.url));
+  return NextResponse.redirect(new URL("/admin", request.url));
 }
 
 export const config = {
-  matcher: [
-    // "/profile",
-    // "/profile/:page*",
-    "/admin",
-    "/login",
-    // "/signup",
-    "/logout",
-  ],
+  matcher: ["/admin", "/login", "/logout"],
 };

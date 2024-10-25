@@ -22,15 +22,15 @@ const AboutMe = () => {
           >
             I am a self-taught and passionate MERN stack web developer with a
             strong drive to learn and implement new technologies in real-world
-            projects. I'm constantly engaged with the latest trends in the
+            projects. I&apos;m constantly engaged with the latest trends in the
             programming world, always expanding my skills in web development. I
             specialize in building dynamic websites with intuitive,
             user-friendly interfaces, focusing on client satisfaction. My
             expertise includes ReactJS, NextJS, Express, NodeJS, MongoDB, and
             various other tools and languages. Along with strong technical
             abilities, I possess excellent time and team management skills.
-            Currently, I'm pursuing my Bachelor's Degree at a reputed university
-            in Bangladesh.
+            Currently, I&apos;m pursuing my Bachelor&apos; Degree at a reputed
+            university in Bangladesh.
           </p>
         </div>
       </div>

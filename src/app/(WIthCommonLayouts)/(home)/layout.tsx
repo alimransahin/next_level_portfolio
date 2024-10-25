@@ -1,6 +1,5 @@
 import Footer from "@/src/components/footer";
 import { Navbar } from "@/src/components/navbar";
-import React from "react";
 
 const Commonlayout = ({ children }: { children: React.ReactNode }) => {
   return (
