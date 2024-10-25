@@ -97,10 +97,10 @@ const Projects = () => {
                 </CardFooter>
 
                 {/* Details Button */}
-                <CardFooter className="flex justify-end mt-2">
+                <CardFooter className="flex justify-center  mt-2">
                   <Link
                     href={`/details/${project._id}`}
-                    className="btn bg-primary-500 text-white hover:bg-primary-600 dark:bg-primary-400 dark:hover:bg-primary-500 transition-all"
+                    className=" bg-gradient-to-tr from-primary to-secondary text-white px-6 py-3 rounded-lg shadow-lg hover:bg-primary-700  duration-300 font-semibold transition-all"
                   >
                     Details
                   </Link>

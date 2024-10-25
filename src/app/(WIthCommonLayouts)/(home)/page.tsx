@@ -6,7 +6,7 @@ import Projects from "@/src/components/homePage/project/project";
 import Skills from "@/src/components/homePage/skills";
 import Contact from "@/src/components/homePage/contact";
 import Certificates from "@/src/components/homePage/certificates";
-import BlogSection from "@/src/components/homePage/blog";
+import BlogSection from "@/src/components/homePage/blog/blog";
 
 export default function Home() {
   return (

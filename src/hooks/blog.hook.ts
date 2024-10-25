@@ -1,21 +1,21 @@
 import { useState } from "react";
 import { toast } from "sonner";
-import { getAllProject } from "../services/Project";
+import { getAllBlog } from "../services/blog";
 
-export const useGetProjects = () => {
+export const useGetBlog = () => {
   const [isPending, setIsPending] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<null | string>(null);
 
-  const handletProject = async () => {
+  const handletBlog = async () => {
     setIsPending(true);
     setIsSuccess(false);
     setError(null);
 
     try {
-      const result = await getAllProject();
+      const result = await getAllBlog();
       setIsSuccess(true);
-      return result; // Return the fetched data here
+      return result;
     } catch (err: any) {
       setError(err.message);
       toast.error(err.message);
@@ -24,5 +24,5 @@ export const useGetProjects = () => {
     }
   };
 
-  return { handletProject, isPending, isSuccess, error };
+  return { handletBlog, isPending, isSuccess, error };
 };

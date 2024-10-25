@@ -17,3 +17,13 @@ export type TProject = {
   description: string;
   isDeleted: boolean;
 };
+export type TBlogPost = {
+  _id: string;
+  title: string;
+  author: string;
+  content: string;
+  tags: string[];
+  imageUrl: string;
+  isPublished: boolean;
+  createdAt: string;
+};
