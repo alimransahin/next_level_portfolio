@@ -15,7 +15,7 @@ export const useGetExperience = () => {
     try {
       const result = await getAllExperience();
       setIsSuccess(true);
-      return result; // Return the fetched data here
+      return result;
     } catch (err: any) {
       setError(err.message);
       toast.error(err.message);

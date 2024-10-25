@@ -21,14 +21,12 @@ const ProjectsPage = () => {
     };
     fetchProjects();
   }, []);
-  console.log(projects);
+
   const handleEdit = (id: string) => {
     router.push(`/edit-project/${id}`);
   };
 
-  const handleDelete = (id: string) => {
-    console.log("Deleting project with id:", id);
-  };
+  const handleDelete = (id: string) => {};
 
   const handleCreate = () => {
     router.push("/create-project");

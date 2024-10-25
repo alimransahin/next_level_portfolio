@@ -5,13 +5,11 @@ import { TExperience } from "@/src/types";
 import { Card, Spacer } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import ExperienceSkeleton from "./experienceSkeleton";
-// import ExperienceSkeleton from "./experienceSkeleton";
-// import ExperienceSkeleton from "./ExperienceSkeleton"; // Import the skeleton component
 
 const Experience: React.FC = () => {
   const { handletExperience } = useGetExperience();
   const [experiences, setExperiences] = useState<TExperience[]>([]);
-  const [isLoading, setIsLoading] = useState(true); // Add loading state
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchExperience = async () => {
@@ -19,7 +17,7 @@ const Experience: React.FC = () => {
       if (result) {
         setExperiences(result.data);
       }
-      setIsLoading(false); // Set loading to false after fetching
+      setIsLoading(false);
     };
     fetchExperience();
   }, []);
@@ -34,7 +32,7 @@ const Experience: React.FC = () => {
       </h3>
       <div className="py-4 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {isLoading
-          ? [...Array(3)].map((_, index) => <ExperienceSkeleton key={index} />) // Show skeletons when loading
+          ? [...Array(3)].map((_, index) => <ExperienceSkeleton key={index} />)
           : experiences.map((experience, index) => (
               <Card
                 key={index}

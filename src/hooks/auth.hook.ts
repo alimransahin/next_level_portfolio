@@ -1,8 +1,6 @@
-// Custom hook for handling user login
-
 import { useState } from "react";
 import { toast } from "sonner";
-import { loginUser } from "@/src/services/AuthService"; // Update path to match your service
+import { loginUser } from "@/src/services/AuthService";
 
 export interface LoginData {
   email: string;
@@ -20,16 +18,15 @@ export const useUserLogin = () => {
     setError(null);
 
     try {
-      const result = await loginUser(data); // Calling the login function from the service
+      const result = await loginUser(data);
 
       setIsSuccess(true);
       toast.success("Login successful");
-      console.log("Login result:", result);
     } catch (err: any) {
       setError(err.message);
-      toast.error(err.message); // Displaying error using toast
+      toast.error(err.message);
     } finally {
-      setIsPending(false); // Reset the loading state
+      setIsPending(false);
     }
   };
 

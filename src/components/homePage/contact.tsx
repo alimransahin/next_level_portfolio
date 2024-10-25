@@ -1,33 +1,10 @@
 "use client";
-import { Mail, Map, MessageCircle, Phone } from "lucide-react";
+import { Mail, Map, Phone } from "lucide-react";
 import Link from "next/link";
 import { useRef } from "react";
-// import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const form = useRef();
-
-  // const sendEmail = (event) => {
-  //   event.preventDefault();
-  //   const f = event.target;
-  //   console.log(f);
-  //   // emailjs
-  //   //   .sendForm(
-  //   //     "service_vzeh0h9",
-  //   //     "template_wexktxd",
-  //   //     form.current,
-  //   //     "xAw3OmnMLxdRtNlSU"
-  //   //   )
-  //   //   .then(
-  //   //     (result) => {
-  //   //       console.log(result.text);
-  //   //       f.reset();
-  //   //     },
-  //   //     (error) => {
-  //   //       console.log(error.text);
-  //   //     }
-  //   //   );
-  // };
 
   return (
     <div className="max-w-screen-xl mx-auto my-4 " id="contact">

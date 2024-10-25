@@ -26,9 +26,7 @@ const ExperiencePage = () => {
     router.push(`/edit-experience/${id}`);
   };
 
-  const handleDelete = (id: string) => {
-    console.log("Deleting experience with id:", id);
-  };
+  const handleDelete = (id: string) => {};
 
   const handleCreate = () => {
     router.push("/create-experience");

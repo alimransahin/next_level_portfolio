@@ -3,18 +3,13 @@ import {
   Card,
   CardHeader,
   CardBody,
-  CardFooter,
   Divider,
-  Link,
   Image,
 } from "@nextui-org/react";
 
-// import { Accordion, AccordionItem } from "@nextui-org/accordion";
-// import { Avatar } from "@nextui-org/react";
+
 
 const Education = () => {
-  //   const defaultContent =
-  //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 
   return (
     <div className=" max-w-screen-xl mx-auto" id="contact">

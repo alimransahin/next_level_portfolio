@@ -21,15 +21,12 @@ const BlogPage = () => {
     };
     fetchBlogs();
   }, []);
-  console.log(blogs);
+
   const handleEdit = (id: string) => {
     router.push(`/edit-blog/${id}`);
   };
 
-  const handleDelete = (id: string) => {
-    // Add your delete functionality here
-    console.log("Deleting blog with id:", id);
-  };
+  const handleDelete = (id: string) => {};
 
   const handleCreate = () => {
     router.push("/create-blog");

@@ -15,7 +15,7 @@ export const useGetSkill = () => {
     try {
       const result = await getAllSkill();
       setIsSuccess(true);
-      return result; // Return the fetched data here
+      return result;
     } catch (err: any) {
       setError(err.message);
       toast.error(err.message);

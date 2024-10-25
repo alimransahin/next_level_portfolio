@@ -26,9 +26,7 @@ const SkillsPage = () => {
     router.push(`/edit-skill/${id}`);
   };
 
-  const handleDelete = (id: string) => {
-    console.log("Deleting skill with id:", id);
-  };
+  const handleDelete = (id: string) => {};
 
   const handleCreate = () => {
     router.push("/create-skill");
