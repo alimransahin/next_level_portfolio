@@ -15,12 +15,17 @@ const Experience: React.FC = () => {
     const fetchExperience = async () => {
       const result = await handletExperience();
       if (result) {
-        setExperiences(result.data);
+        setExperiences(result.data); // Ensure it sets to an empty array if data is null
       }
       setIsLoading(false);
     };
     fetchExperience();
-  }, []);
+  }, [handletExperience]);
+
+  // Check if the experiences array is empty or null
+  // if (!experiences || experiences.length === 0) {
+  //   return null; // Return null to hide the section
+  // }
 
   return (
     <div className="max-w-screen-xl mx-auto" id="experience">
@@ -45,7 +50,7 @@ const Experience: React.FC = () => {
                   {experience.title}
                 </h4>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  {experience.startTime}-{experience.endTime}
+                  {experience.startTime} - {experience.endTime}
                 </p>
                 <Spacer y={1} />
                 <p className="text-gray-700 dark:text-gray-300">

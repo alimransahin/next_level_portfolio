@@ -17,7 +17,7 @@ const BlogSection = () => {
       setIsLoading(false);
     };
     fetchBlogs();
-  }, []);
+  }, [handletBlog]);
   const formatDate = (dateString: string): string => {
     const options: Intl.DateTimeFormatOptions = {
       year: "numeric",

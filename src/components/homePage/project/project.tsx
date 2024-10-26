@@ -21,7 +21,7 @@ const Projects = () => {
       setIsLoading(false);
     };
     fetchProjects();
-  }, []);
+  }, [handletProject]);
 
   return (
     <div className="max-w-screen-xl mx-auto" id="projects">

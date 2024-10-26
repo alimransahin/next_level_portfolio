@@ -2,7 +2,7 @@
 
 import { useGetExperience } from "@/src/hooks/experience.hook";
 import { TExperience } from "@/src/types";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 const ExperiencePage = () => {

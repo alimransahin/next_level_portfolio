@@ -20,7 +20,7 @@ const Skills: React.FC = () => {
       setIsLoading(false);
     };
     fetchSkills();
-  }, []);
+  }, [handletSkill]);
 
   const skillCategories = data.reduce<{ category: string; items: TSkill[] }[]>(
     (acc, item) => {
