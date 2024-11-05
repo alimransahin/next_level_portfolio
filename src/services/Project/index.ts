@@ -1,3 +1,4 @@
+import { IProject } from "@/src/hooks/project.hook";
 import axiosInstance from "@/src/lib/AxiosInstance";
 
 export const getAllProject = async () => {
@@ -11,29 +12,12 @@ export const getAllProject = async () => {
   }
 };
 
-// export const UpdateUserProfile = async (
-//   userData: FieldValues,
-//   userId: string
-// ) => {
-//   try {
-//     const { data } = await axiosInstance.put(
-//       `/user/update-profile/${userId}`,
-//       userData
-//     );
+export const addProject = async (projectData: IProject) => {
+  try {
+    const { data } = await axiosInstance.post("/project/", projectData);
 
-//     return data;
-//   } catch (error: any) {
-//     throw new Error(error);
-//   }
-// };
-// export const UpdateUserStatus = async (action: string, userId: string) => {
-//   try {
-//     const { data } = await axiosInstance.put(`/user/update-status/${userId}`, {
-//       action,
-//     });
-
-//     return data;
-//   } catch (error: any) {
-//     throw new Error(error);
-//   }
-// };
+    return data;
+  } catch (error: any) {
+    throw new Error(error);
+  }
+};
