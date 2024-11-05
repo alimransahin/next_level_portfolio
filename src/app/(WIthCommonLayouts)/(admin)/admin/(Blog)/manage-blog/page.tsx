@@ -29,7 +29,7 @@ const BlogPage = () => {
   const handleDelete = (id: string) => {};
 
   const handleCreate = () => {
-    router.push("/create-blog");
+    router.push("/admin/create-blog");
   };
 
   return (

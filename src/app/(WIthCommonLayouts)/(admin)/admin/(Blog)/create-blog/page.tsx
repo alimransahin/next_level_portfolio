@@ -1,4 +1,5 @@
 "use client";
+import QuillEditor from "@/src/components/Editor";
 import { useAddProject } from "@/src/hooks/project.hook";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
@@ -42,105 +43,106 @@ const ProjectForm: React.FC = () => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md"
-    >
-      <h3 className="text-2xl font-semibold mb-4">Project Information</h3>
+    <QuillEditor />
+    // <form
+    //   onSubmit={handleSubmit(onSubmit)}
+    //   className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md"
+    // >
+    //   <h3 className="text-2xl font-semibold mb-4">Project Information</h3>
 
-      <div className="mb-4">
-        <label className="block font-medium">Project Name</label>
-        <input
-          type="text"
-          {...register("name", { required: "Project name is required" })}
-          className="w-full p-2 border rounded"
-        />
-        {errors.name && <p className="text-red-500">{errors.name.message}</p>}
-      </div>
+    //   <div className="mb-4">
+    //     <label className="block font-medium">Project Name</label>
+    //     <input
+    //       type="text"
+    //       {...register("name", { required: "Project name is required" })}
+    //       className="w-full p-2 border rounded"
+    //     />
+    //     {errors.name && <p className="text-red-500">{errors.name.message}</p>}
+    //   </div>
 
-      <div className="mb-4">
-        <label className="block font-medium">Live URL</label>
-        <input
-          type="url"
-          {...register("live")}
-          className="w-full p-2 border rounded"
-        />
-      </div>
+    //   <div className="mb-4">
+    //     <label className="block font-medium">Live URL</label>
+    //     <input
+    //       type="url"
+    //       {...register("live")}
+    //       className="w-full p-2 border rounded"
+    //     />
+    //   </div>
 
-      <div className="mb-4">
-        <label className="block font-medium">Client Repository URL</label>
-        <input
-          type="url"
-          {...register("client")}
-          className="w-full p-2 border rounded"
-        />
-      </div>
+    //   <div className="mb-4">
+    //     <label className="block font-medium">Client Repository URL</label>
+    //     <input
+    //       type="url"
+    //       {...register("client")}
+    //       className="w-full p-2 border rounded"
+    //     />
+    //   </div>
 
-      <div className="mb-4">
-        <label className="block font-medium">Server Repository URL</label>
-        <input
-          type="url"
-          {...register("server")}
-          className="w-full p-2 border rounded"
-        />
-      </div>
+    //   <div className="mb-4">
+    //     <label className="block font-medium">Server Repository URL</label>
+    //     <input
+    //       type="url"
+    //       {...register("server")}
+    //       className="w-full p-2 border rounded"
+    //     />
+    //   </div>
 
-      <div className="mb-4">
-        <label className="block font-medium">
-          Technologies (comma-separated)
-        </label>
-        <input
-          type="text"
-          {...register("technology")}
-          className="w-full p-2 border rounded"
-        />
-      </div>
+    //   <div className="mb-4">
+    //     <label className="block font-medium">
+    //       Technologies (comma-separated)
+    //     </label>
+    //     <input
+    //       type="text"
+    //       {...register("technology")}
+    //       className="w-full p-2 border rounded"
+    //     />
+    //   </div>
 
-      <div className="mb-4">
-        <label className="block font-medium">Features (comma-separated)</label>
-        <input
-          type="text"
-          {...register("feature")}
-          className="w-full p-2 border rounded"
-        />
-      </div>
+    //   <div className="mb-4">
+    //     <label className="block font-medium">Features (comma-separated)</label>
+    //     <input
+    //       type="text"
+    //       {...register("feature")}
+    //       className="w-full p-2 border rounded"
+    //     />
+    //   </div>
 
-      <div className="mb-4">
-        <label className="block font-medium">Main Image URL</label>
-        <input
-          type="url"
-          {...register("mainImage")}
-          className="w-full p-2 border rounded"
-        />
-      </div>
+    //   <div className="mb-4">
+    //     <label className="block font-medium">Main Image URL</label>
+    //     <input
+    //       type="url"
+    //       {...register("mainImage")}
+    //       className="w-full p-2 border rounded"
+    //     />
+    //   </div>
 
-      <div className="mb-4">
-        <label className="block font-medium">
-          Others Images URL (comma-separated URLs)
-        </label>
-        <input
-          type="text"
-          {...register("images")}
-          className="w-full p-2 border rounded"
-        />
-      </div>
+    //   <div className="mb-4">
+    //     <label className="block font-medium">
+    //       Others Images URL (comma-separated URLs)
+    //     </label>
+    //     <input
+    //       type="text"
+    //       {...register("images")}
+    //       className="w-full p-2 border rounded"
+    //     />
+    //   </div>
 
-      <div className="mb-4">
-        <label className="block font-medium">Description</label>
-        <textarea
-          {...register("description")}
-          className="w-full p-2 border rounded"
-        ></textarea>
-      </div>
+    //   <div className="mb-4">
+    //     <label className="block font-medium">Description</label>
+    //     <textarea
+    //       {...register("description")}
+    //       className="w-full p-2 border rounded"
+    //     ></textarea>
+    //   </div>
 
-      <button
-        type="submit"
-        disabled={isPending}
-        className="btn bg-gradient-to-r from-primary to-secondary text-white w-full hover:opacity-90 transition-all py-4 rounded-lg"
-      >
-        {isPending ? "Logging in..." : "Login"}
-      </button>
-    </form>
+    //   <button
+    //     type="submit"
+    //     disabled={isPending}
+    //     className="btn bg-gradient-to-r from-primary to-secondary text-white w-full hover:opacity-90 transition-all py-4 rounded-lg"
+    //   >
+    //     {isPending ? "Logging in..." : "Login"}
+    //   </button>
+    // </form>
   );
 };
 
