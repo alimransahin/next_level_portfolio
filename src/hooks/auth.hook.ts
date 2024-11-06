@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
+
 import { loginUser } from "@/src/services/AuthService";
 
 export interface LoginData {
@@ -18,7 +19,7 @@ export const useUserLogin = () => {
     setError(null);
 
     try {
-      const result = await loginUser(data);
+      await loginUser(data);
 
       setIsSuccess(true);
       toast.success("Login successful");

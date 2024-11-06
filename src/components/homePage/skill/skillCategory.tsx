@@ -17,7 +17,7 @@ const SkillCategory: React.FC<SkillCategoryProps> = ({ title, skills }) => {
       <ul className="list-none text-gray-700 dark:text-gray-300">
         {skills.map((skill, index) => (
           <li key={index} className="text-lg flex items-center gap-2">
-            <img src={skill.image} alt={skill.name} className="w-6 h-6" />{" "}
+            <img alt={skill.name} className="w-6 h-6" src={skill.image} />{" "}
             <span>{skill.name}</span>
           </li>
         ))}

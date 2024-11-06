@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
+
 import { addExperience, getAllExperience } from "../services/Experience";
 import { IExperience } from "../app/(WIthCommonLayouts)/(admin)/admin/(Experience)/create-experience/page";
 
@@ -15,7 +16,9 @@ export const useGetExperience = () => {
 
     try {
       const result = await getAllExperience();
+
       setIsSuccess(true);
+
       return result;
     } catch (err: any) {
       setError(err.message);
@@ -38,7 +41,7 @@ export const useAddExperience = () => {
     setError(null);
     // console.log(data);
     try {
-      const result = await addExperience(data);
+      await addExperience(data);
 
       setIsSuccess(true);
       toast.success("Experience Added successful");

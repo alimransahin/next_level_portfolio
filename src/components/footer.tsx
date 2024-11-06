@@ -4,8 +4,8 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer
-      id="contact"
       className="  mx-auto p-6  rounded-t-lg w-full bg-primary-400"
+      id="contact"
     >
       {/* Footer Content */}
       <div className="flex flex-col md:flex-row justify-between items-center container mx-auto max-w-7xl  px-6 flex-grow">

@@ -1,11 +1,13 @@
 "use client";
-import { useGetProjects } from "@/src/hooks/project.hook";
-import { TProject } from "@/src/types";
 import { Card, CardBody, CardFooter } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+
 import ProjectSkeleton from "./ProjectSkeleton";
+
+import { TProject } from "@/src/types";
+import { useGetProjects } from "@/src/hooks/project.hook";
 
 const Projects = () => {
   const { handletProject } = useGetProjects();
@@ -15,11 +17,13 @@ const Projects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       const result = await handletProject();
+
       if (result) {
         setProjects(result.data);
       }
       setIsLoading(false);
     };
+
     fetchProjects();
   }, [handletProject]);
 
@@ -41,17 +45,17 @@ const Projects = () => {
               <Card
                 key={project._id}
                 className="relative glass bg-opacity-50 p-4 transition-transform transform hover:shadow-xl"
-                style={{ backdropFilter: "blur(10px)" }}
                 radius="lg"
+                style={{ backdropFilter: "blur(10px)" }}
               >
                 {/* Project Image */}
                 <CardBody>
                   <Image
-                    src={project.mainImage}
                     alt={project.name}
                     className="rounded-lg object-cover w-full max-h-72"
-                    width={400}
                     height={80}
+                    src={project.mainImage}
+                    width={400}
                   />
                 </CardBody>
 
@@ -75,21 +79,21 @@ const Projects = () => {
                 {/* Links */}
                 <CardFooter className="flex justify-between mt-4">
                   <Link
-                    href={project.live}
                     className="text-blue-600 dark:text-blue-400 hover:underline"
+                    href={project.live}
                   >
                     Live
                   </Link>
                   <Link
-                    href={project.client}
                     className="text-blue-600 dark:text-blue-400 hover:underline"
+                    href={project.client}
                   >
                     Client
                   </Link>
                   {project.server && (
                     <Link
-                      href={project.server}
                       className="text-blue-600 dark:text-blue-400 hover:underline"
+                      href={project.server}
                     >
                       Server
                     </Link>
@@ -99,8 +103,8 @@ const Projects = () => {
                 {/* Details Button */}
                 <CardFooter className="flex justify-center  mt-2">
                   <Link
-                    href={`/details/${project._id}`}
                     className=" bg-gradient-to-tr from-primary to-secondary text-white px-6 py-3 rounded-lg shadow-lg hover:bg-primary-700  duration-300 font-semibold transition-all"
+                    href={`/details/${project._id}`}
                   >
                     Details
                   </Link>

@@ -1,9 +1,10 @@
 "use client";
 
-import { useGetSkill } from "@/src/hooks/skill.hook";
-import { TSkill } from "@/src/types";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+
+import { useGetSkill } from "@/src/hooks/skill.hook";
+import { TSkill } from "@/src/types";
 
 const SkillsPage = () => {
   const { handletSkill } = useGetSkill();
@@ -14,11 +15,13 @@ const SkillsPage = () => {
   useEffect(() => {
     const fetchSkills = async () => {
       const result = await handletSkill();
+
       if (result) {
         setData(result.data);
       }
       setIsLoading(false);
     };
+
     fetchSkills();
   }, []);
 
@@ -38,8 +41,8 @@ const SkillsPage = () => {
 
       <div className="flex justify-end mb-4">
         <button
-          onClick={handleCreate}
           className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
+          onClick={handleCreate}
         >
           Add Skill
         </button>
@@ -71,14 +74,14 @@ const SkillsPage = () => {
                 <td className="py-3 px-4">{skill.category}</td>
                 <td className="py-3 px-4 text-center">
                   <button
-                    onClick={() => handleEdit(skill._id)}
                     className="px-3 py-1 bg-green-500 text-white rounded-md hover:bg-green-600 mr-2"
+                    onClick={() => handleEdit(skill._id)}
                   >
                     Edit
                   </button>
                   <button
-                    onClick={() => handleDelete(skill._id)}
                     className="px-3 py-1 bg-red-500 text-white rounded-md hover:bg-red-600"
+                    onClick={() => handleDelete(skill._id)}
                   >
                     Delete
                   </button>

@@ -1,7 +1,8 @@
 "use client";
-import { useUserLogin } from "@/src/hooks/auth.hook";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+
+import { useUserLogin } from "@/src/hooks/auth.hook";
 
 const LoginForm: React.FC = () => {
   const { handleLogin, isPending, isSuccess } = useUserLogin();
@@ -26,43 +27,43 @@ const LoginForm: React.FC = () => {
         <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
           Login
         </h2>
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form className="space-y-6" onSubmit={handleSubmit}>
           {/* Email Input */}
           <div className="form-control">
-            <label htmlFor="email" className="block text-gray-700">
+            <label className="block text-gray-700" htmlFor="email">
               Email
             </label>
             <input
+              className="input input-bordered w-full text-md rounded-lg p-4 border border-primary-50"
               id="email"
-              type="email"
               placeholder="Enter your email"
+              type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="input input-bordered w-full text-md rounded-lg p-4 border border-primary-50"
             />
           </div>
 
           {/* Password Input */}
           <div className="form-control">
-            <label htmlFor="password" className="block  text-gray-700">
+            <label className="block  text-gray-700" htmlFor="password">
               Password
             </label>
             <input
+              className="input input-bordered w-full text-md rounded-lg p-4 border border-primary-50"
               id="password"
-              type="password"
               placeholder="Enter your password"
+              type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="input input-bordered w-full text-md rounded-lg p-4 border border-primary-50"
             />
           </div>
 
           {/* Submit Button */}
           <div className="form-control mt-6">
             <button
-              type="submit"
-              disabled={isPending}
               className="btn bg-gradient-to-r from-primary to-secondary text-white w-full hover:opacity-90 transition-all py-4 rounded-lg"
+              disabled={isPending}
+              type="submit"
             >
               {isPending ? "Logging in..." : "Login"}
             </button>

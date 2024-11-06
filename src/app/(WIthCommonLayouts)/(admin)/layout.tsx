@@ -1,8 +1,6 @@
-import Footer from "@/src/components/footer";
-import { Navbar } from "@/src/components/navbar";
-import Sidebar from "@/src/components/sidebar";
 import Link from "next/link";
 
+import Sidebar from "@/src/components/sidebar";
 
 const Commonlayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -16,15 +14,15 @@ const Commonlayout = ({ children }: { children: React.ReactNode }) => {
       <div className="flex-1 flex flex-col">
         {/* Header */}
         <header className="bg-white shadow-sm p-4 flex justify-between items-center sticky top-0">
-          <Link href="/admin" className="text-2xl font-semibold text-gray-800">
+          <Link className="text-2xl font-semibold text-gray-800" href="/admin">
             Dashboard
           </Link>
           <div className="flex items-center space-x-4">
             <span className="text-sm text-gray-600">Md. Al Imran</span>
             <img
-              src="https://i.ibb.co.com/Xp5qBf4/imran.jpg"
               alt="Profile"
               className="w-10 h-10 rounded-full"
+              src="https://i.ibb.co.com/Xp5qBf4/imran.jpg"
             />
           </div>
         </header>

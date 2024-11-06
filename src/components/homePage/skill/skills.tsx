@@ -1,10 +1,12 @@
 "use client";
 
-import { useGetSkill } from "@/src/hooks/skill.hook";
-import { TSkill } from "@/src/types";
 import { useEffect, useState } from "react";
+
 import SkillSkeleton from "./SkillSkeleton";
 import SkillCategory from "./skillCategory";
+
+import { TSkill } from "@/src/types";
+import { useGetSkill } from "@/src/hooks/skill.hook";
 
 const Skills: React.FC = () => {
   const { handletSkill } = useGetSkill();
@@ -14,11 +16,13 @@ const Skills: React.FC = () => {
   useEffect(() => {
     const fetchSkills = async () => {
       const result = await handletSkill();
+
       if (result) {
         setData(result.data);
       }
       setIsLoading(false);
     };
+
     fetchSkills();
   }, [handletSkill]);
 
@@ -33,9 +37,10 @@ const Skills: React.FC = () => {
       }
 
       categoryGroup.items.push(item);
+
       return acc;
     },
-    []
+    [],
   );
 
   return (
@@ -52,8 +57,8 @@ const Skills: React.FC = () => {
           : skillCategories.map((category, index) => (
               <SkillCategory
                 key={index}
-                title={category.category}
                 skills={category.items}
+                title={category.category}
               />
             ))}
       </div>

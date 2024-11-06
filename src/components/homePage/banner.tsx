@@ -39,9 +39,9 @@ const Banner = () => {
       </div>
       <div className="img content-center  ">
         <img
-          src="https://i.ibb.co/9spF687/imran-2.png"
-          className="m-auto w-full sm:w-1/2"
           alt="Md Al Imran"
+          className="m-auto w-full sm:w-1/2"
+          src="https://i.ibb.co/9spF687/imran-2.png"
         />
       </div>
     </div>

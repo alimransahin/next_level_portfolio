@@ -1,8 +1,10 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
 import { SidebarOptions } from "./SidebarOptions";
 import { adminLinks } from "./constants";
-import { useRouter } from "next/navigation";
+
 import { logOut } from "@/src/services/AuthService";
 
 const Sidebar = () => {
@@ -19,8 +21,8 @@ const Sidebar = () => {
         <div>
           <div className="my-6">
             <Link
-              href="/admin"
               className="text-xl font-bold block py-2.5 px-4 hover:bg-gray-700"
+              href="/admin"
             >
               Dashboard
             </Link>
@@ -33,8 +35,8 @@ const Sidebar = () => {
         </div>
         <div className="p-6">
           <button
-            onClick={handleLogout}
             className="w-full py-2 px-4 bg-red-500 hover:bg-red-600 text-white rounded"
+            onClick={handleLogout}
           >
             Logout
           </button>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
+
 import { addBlog, getAllBlog } from "../services/Blog";
 
 export interface IBlog {
@@ -22,7 +23,9 @@ export const useGetBlog = () => {
 
     try {
       const result = await getAllBlog();
+
       setIsSuccess(true);
+
       return result;
     } catch (err: any) {
       setError(err.message);
@@ -45,7 +48,7 @@ export const useAddBlog = () => {
     setError(null);
     // console.log(data);
     try {
-      const result = await addBlog(data);
+      await addBlog(data);
 
       setIsSuccess(true);
       toast.success("Blog Added successful");

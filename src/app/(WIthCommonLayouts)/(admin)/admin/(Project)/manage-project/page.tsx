@@ -1,9 +1,10 @@
 "use client";
 
-import { useGetProjects } from "@/src/hooks/project.hook";
-import { TProject } from "@/src/types";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+
+import { useGetProjects } from "@/src/hooks/project.hook";
+import { TProject } from "@/src/types";
 
 const ProjectsPage = () => {
   const { handletProject } = useGetProjects();
@@ -14,11 +15,13 @@ const ProjectsPage = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       const result = await handletProject();
+
       if (result) {
         setProjects(result.data);
       }
       setIsLoading(false);
     };
+
     fetchProjects();
   }, []);
 
@@ -40,8 +43,8 @@ const ProjectsPage = () => {
 
       <div className="flex justify-end mb-4">
         <button
-          onClick={handleCreate}
           className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
+          onClick={handleCreate}
         >
           Add Project
         </button>
@@ -70,14 +73,14 @@ const ProjectsPage = () => {
                 <td className="py-3 px-4">{project.name}</td>
                 <td className="py-3 px-4 text-center">
                   <button
-                    onClick={() => handleEdit(project._id)}
                     className="px-3 py-1 bg-green-500 text-white rounded-md hover:bg-green-600 mr-2"
+                    onClick={() => handleEdit(project._id)}
                   >
                     Edit
                   </button>
                   <button
-                    onClick={() => handleDelete(project._id)}
                     className="px-3 py-1 bg-red-500 text-white rounded-md hover:bg-red-600"
+                    onClick={() => handleDelete(project._id)}
                   >
                     Delete
                   </button>

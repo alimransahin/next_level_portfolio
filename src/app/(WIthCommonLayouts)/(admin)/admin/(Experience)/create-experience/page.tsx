@@ -1,9 +1,10 @@
 "use client";
-import { useAddExperience } from "@/src/hooks/experience.hook";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import DatePicker from "react-datepicker";
+
+import { useAddExperience } from "@/src/hooks/experience.hook";
 import "react-datepicker/dist/react-datepicker.css";
 
 export interface IExperience {
@@ -38,14 +39,17 @@ const ExperienceForm: React.FC = () => {
 
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
       className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md"
+      onSubmit={handleSubmit(onSubmit)}
     >
       <h3 className="text-2xl font-semibold mb-4">Experience Information</h3>
 
       <div className="mb-4">
-        <label className="block font-medium">Company</label>
+        <label className="block font-medium" htmlFor="title">
+          Company
+        </label>
         <input
+          id="title"
           type="text"
           {...register("title", { required: "Company is required" })}
           className="w-full p-2 border rounded"
@@ -54,8 +58,11 @@ const ExperienceForm: React.FC = () => {
       </div>
 
       <div className="mb-4">
-        <label className="block font-medium">Role</label>
+        <label className="block font-medium" htmlFor="role">
+          Role
+        </label>
         <input
+          id="role"
           type="text"
           {...register("role", { required: "Role is required" })}
           className="w-full p-2 border rounded"
@@ -64,42 +71,45 @@ const ExperienceForm: React.FC = () => {
       </div>
 
       <div className="mb-4 w-full">
-        <label className="block font-medium">Start Time</label>
+        <label className="block font-medium" htmlFor="startTime">
+          Start Time
+        </label>
         <Controller
           control={control}
           name="startTime"
-          rules={{ required: "Start time is required" }}
           render={({ field }) => (
             <DatePicker
-              selected={field.value}
-              onChange={(date) => field.onChange(date)}
               className="w-full p-2 border rounded"
-              placeholderText="Select end date"
-              wrapperClassName="w-full" // Ensure full width
+              placeholderText="Select start date"
+              selected={field.value}
+              wrapperClassName="w-full"
+              onChange={(date) => field.onChange(date)}
             />
           )}
+          rules={{ required: "Start time is required" }}
         />
         {errors.startTime && (
           <p className="text-red-500">{errors.startTime.message}</p>
         )}
       </div>
 
-      {/* End Time */}
       <div className="mb-4 w-full">
-        <label className="block font-medium">End Time</label>
+        <label className="block font-medium" htmlFor="endTime">
+          End Time
+        </label>
         <Controller
           control={control}
           name="endTime"
-          rules={{ required: "End time is required" }}
           render={({ field }) => (
             <DatePicker
-              selected={field.value}
-              onChange={(date) => field.onChange(date)}
               className="w-full p-2 border rounded"
               placeholderText="Select end date"
-              wrapperClassName="w-full" // Ensure full width
+              selected={field.value}
+              wrapperClassName="w-full"
+              onChange={(date) => field.onChange(date)}
             />
           )}
+          rules={{ required: "End time is required" }}
         />
         {errors.endTime && (
           <p className="text-red-500">{errors.endTime.message}</p>
@@ -107,20 +117,23 @@ const ExperienceForm: React.FC = () => {
       </div>
 
       <div className="mb-4">
-        <label className="block font-medium">Description</label>
+        <label className="block font-medium" htmlFor="description">
+          Description
+        </label>
         <textarea
+          id="description"
           {...register("description", { required: "Description is required" })}
           className="w-full p-2 border rounded"
-        ></textarea>
+        />
         {errors.description && (
           <p className="text-red-500">{errors.description.message}</p>
         )}
       </div>
 
       <button
-        type="submit"
-        disabled={isPending}
         className="btn bg-gradient-to-r from-primary to-secondary text-white w-full hover:opacity-90 transition-all py-4 rounded-lg"
+        disabled={isPending}
+        type="submit"
       >
         {isPending ? "Loading..." : "Add Experience"}
       </button>

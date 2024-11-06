@@ -4,10 +4,11 @@ import axiosInstance from "@/src/lib/AxiosInstance";
 export const getAllProject = async () => {
   try {
     const { data } = await axiosInstance.get(`/project`);
+
     return data;
   } catch (error: any) {
     throw new Error(
-      error.response?.data?.message || "Failed to retrieve Project"
+      error.response?.data?.message || "Failed to retrieve Project",
     );
   }
 };

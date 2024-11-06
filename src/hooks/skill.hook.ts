@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
+
 import { addSkill, getAllSkill } from "../services/Skill";
 import { ISkill } from "../app/(WIthCommonLayouts)/(admin)/admin/(Skill)/create-skill/page";
 
@@ -15,7 +16,9 @@ export const useGetSkill = () => {
 
     try {
       const result = await getAllSkill();
+
       setIsSuccess(true);
+
       return result;
     } catch (err: any) {
       setError(err.message);
@@ -38,7 +41,7 @@ export const useAddSkill = () => {
     setError(null);
     // console.log(data);
     try {
-      const result = await addSkill(data);
+      await addSkill(data);
 
       setIsSuccess(true);
       toast.success("Skill Added successful");

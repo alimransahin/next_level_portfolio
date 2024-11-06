@@ -1,9 +1,10 @@
 "use client";
 
-import { useGetExperience } from "@/src/hooks/experience.hook";
-import { TExperience } from "@/src/types";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+
+import { useGetExperience } from "@/src/hooks/experience.hook";
+import { TExperience } from "@/src/types";
 
 const ExperiencePage = () => {
   const { handletExperience } = useGetExperience();
@@ -14,11 +15,13 @@ const ExperiencePage = () => {
   useEffect(() => {
     const fetchExperience = async () => {
       const result = await handletExperience();
+
       if (result) {
         setExperiences(result.data);
       }
       setIsLoading(false);
     };
+
     fetchExperience();
   }, []);
 
@@ -40,8 +43,8 @@ const ExperiencePage = () => {
 
       <div className="flex justify-end mb-4">
         <button
-          onClick={handleCreate}
           className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
+          onClick={handleCreate}
         >
           Add Experience
         </button>
@@ -79,14 +82,14 @@ const ExperiencePage = () => {
                 </td>
                 <td className="py-3 px-4 text-center">
                   <button
-                    onClick={() => handleEdit(experience._id)}
                     className="px-3 py-1 bg-green-500 text-white rounded-md hover:bg-green-600 mr-2"
+                    onClick={() => handleEdit(experience._id)}
                   >
                     Edit
                   </button>
                   <button
-                    onClick={() => handleDelete(experience._id)}
                     className="px-3 py-1 bg-red-500 text-white rounded-md hover:bg-red-600"
+                    onClick={() => handleDelete(experience._id)}
                   >
                     Delete
                   </button>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { toast } from "sonner";
+
 import { addProject, getAllProject } from "../services/Project";
-import { loginUser } from "../services/AuthService";
 
 export interface IProject {
   name: string;
@@ -27,7 +27,9 @@ export const useGetProjects = () => {
 
     try {
       const result = await getAllProject();
+
       setIsSuccess(true);
+
       return result;
     } catch (err: any) {
       setError(err.message);
@@ -50,7 +52,7 @@ export const useAddProject = () => {
     setError(null);
     // console.log(data);
     try {
-      const result = await addProject(data);
+      await addProject(data);
 
       setIsSuccess(true);
       toast.success("Project Added successful");

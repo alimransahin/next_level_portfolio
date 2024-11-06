@@ -1,9 +1,10 @@
 "use client";
-import QuillEditor from "@/src/components/Editor";
-import { useAddProject } from "@/src/hooks/project.hook";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+
+import { useAddProject } from "@/src/hooks/project.hook";
+import QuillEditor from "@/src/components/Editor";
 
 interface IProject {
   name: string;
@@ -19,8 +20,9 @@ interface IProject {
 }
 
 const ProjectForm: React.FC = () => {
-  const { handleAddProject, isPending, isSuccess } = useAddProject();
+  const { handleAddProject, isSuccess } = useAddProject();
   const router = useRouter();
+
   useEffect(() => {
     if (isSuccess) {
       router.push("/admin/manage-project");
@@ -39,6 +41,7 @@ const ProjectForm: React.FC = () => {
       feature: data.feature.split(",").map((feat) => feat.trim()),
       images: data.images.split(",").map((img) => img.trim()),
     };
+
     handleAddProject(formattedData);
   };
 

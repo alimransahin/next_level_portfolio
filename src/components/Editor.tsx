@@ -5,8 +5,9 @@ import "quill/dist/quill.snow.css";
 import { Camera } from "lucide-react";
 import axios from "axios";
 import { toast } from "sonner";
-import envConfig from "../config";
 import { useRouter } from "next/navigation";
+
+import envConfig from "../config";
 import { useAddBlog } from "../hooks/blog.hook";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
@@ -27,7 +28,7 @@ const QuillEditor = () => {
   const [tags, setTags] = useState<string[]>([]);
   const [tagInput, setTagInput] = useState<string>("");
 
-  const { handleAddBlog, isPending, isSuccess } = useAddBlog();
+  const { handleAddBlog, isSuccess } = useAddBlog();
   const router = useRouter();
 
   useEffect(() => {
@@ -43,6 +44,7 @@ const QuillEditor = () => {
   const imgbbApiKey = envConfig.imgbb_api;
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
+
     if (selectedFile) {
       await handleUpload(selectedFile);
     }
@@ -50,14 +52,16 @@ const QuillEditor = () => {
 
   const handleUpload = async (file: File) => {
     const formData = new FormData();
+
     formData.append("image", file);
 
     try {
       const response = await axios.post(
         `https://api.imgbb.com/1/upload?key=${imgbbApiKey}`,
-        formData
+        formData,
       );
       const directLink = response.data.data.url;
+
       setImageUrl(directLink);
       toast.success("Image uploaded successfully");
     } catch (error) {
@@ -74,6 +78,7 @@ const QuillEditor = () => {
         tags,
         imageUrl,
       };
+
       handleAddBlog(blogData);
     }
   };
@@ -105,11 +110,11 @@ const QuillEditor = () => {
 
       <div className="bg-white p-6 rounded-lg shadow-lg">
         <input
-          type="text"
+          className="mb-4 w-full p-2 border border-gray-300 rounded"
           placeholder="Blog Title"
+          type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="mb-4 w-full p-2 border border-gray-300 rounded"
         />
 
         <div className="mb-28 md:mb-20 lg:mb-14">
@@ -124,45 +129,42 @@ const QuillEditor = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div>
-            <input
-              className="hidden"
-              id="fileInput"
-              name="imageUrl"
-              type="file"
-              onChange={handleFileChange}
-            />
-            <label
-              className="border border-gray-300 bg-gray-50 p-3 flex items-center cursor-pointer rounded-md hover:bg-gray-100 transition"
-              htmlFor="fileInput"
-            >
+            <label className="border border-gray-300 bg-gray-50 p-3 flex items-center cursor-pointer rounded-md hover:bg-gray-100 transition">
               <Camera className="mr-2 text-gray-500" /> Attach Photo
+              <input
+                className="hidden"
+                name="imageUrl"
+                type="file"
+                onChange={handleFileChange}
+              />
             </label>
             {imageUrl && (
               <p className="text-sm text-green-600 mt-1">Image attached!</p>
             )}
           </div>
+
           <div>
             <input
-              type="text"
+              className="mb-4 w-full h-full p-2 border border-gray-300 rounded"
               placeholder="Author"
+              type="text"
               value={author}
               onChange={(e) => setAuthor(e.target.value)}
-              className="mb-4 w-full h-full p-2 border border-gray-300 rounded"
             />
           </div>
         </div>
         <div className="">
           <div className="flex items-center space-x-2 ">
             <input
-              type="text"
+              className="border border-gray-300 rounded  p-2 w-full"
               placeholder="Add a tag (max 4)"
+              type="text"
               value={tagInput}
               onChange={(e) => setTagInput(e.target.value)}
-              className="border border-gray-300 rounded  p-2 w-full"
             />
             <button
-              onClick={addTag}
               className="bg-blue-600 text-white px-3 py-2  rounded hover:bg-blue-500 transition"
+              onClick={addTag}
             >
               Add
             </button>
@@ -175,8 +177,8 @@ const QuillEditor = () => {
               >
                 {tag}
                 <button
-                  onClick={() => removeTag(index)}
                   className="ml-2 text-gray-600 hover:text-gray-800"
+                  onClick={() => removeTag(index)}
                 >
                   &times;
                 </button>

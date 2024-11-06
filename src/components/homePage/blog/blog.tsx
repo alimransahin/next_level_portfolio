@@ -1,7 +1,8 @@
 "use client";
+import { useEffect, useState } from "react";
+
 import { useGetBlog } from "@/src/hooks/blog.hook";
 import { TBlogPost } from "@/src/types";
-import { useEffect, useState } from "react";
 
 const BlogSection = () => {
   const { handletBlog } = useGetBlog();
@@ -11,11 +12,13 @@ const BlogSection = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       const result = await handletBlog();
+
       if (result) {
         setBlogs(result.data);
       }
       setIsLoading(false);
     };
+
     fetchBlogs();
   }, [handletBlog]);
   const formatDate = (dateString: string): string => {
@@ -25,6 +28,7 @@ const BlogSection = () => {
       day: "numeric",
     };
     const date = new Date(dateString);
+
     return date.toLocaleDateString("en-US", options);
   };
 
@@ -47,11 +51,11 @@ const BlogSection = () => {
               key={index}
               className="flex flex-col bg-gray-200 p-6 rounded-xl shadow-lg animate-pulse"
             >
-              <div className="bg-gray-300 h-48 rounded-md mb-4"></div>
-              <div className="bg-gray-300 h-6 rounded mb-2"></div>
-              <div className="bg-gray-300 h-4 rounded mb-4"></div>
-              <div className="bg-gray-300 h-4 rounded mb-4"></div>
-              <div className="bg-gray-300 h-4 rounded"></div>
+              <div className="bg-gray-300 h-48 rounded-md mb-4" />
+              <div className="bg-gray-300 h-6 rounded mb-2" />
+              <div className="bg-gray-300 h-4 rounded mb-4" />
+              <div className="bg-gray-300 h-4 rounded mb-4" />
+              <div className="bg-gray-300 h-4 rounded" />
             </div>
           ))}
         </div>
@@ -64,9 +68,9 @@ const BlogSection = () => {
               className="flex flex-col bg-default-100 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300"
             >
               <img
-                src={blogPost.imageUrl}
                 alt={blogPost.title}
                 className="w-full h-48 object-cover rounded-md mb-4"
+                src={blogPost.imageUrl}
               />
               <h4 className="text-2xl font-bold text-primary mb-2">
                 {blogPost.title}
@@ -74,8 +78,8 @@ const BlogSection = () => {
               <p className="text-default-700 mb-4">
                 {blogPost.content.substring(0, 100)}...
                 <a
-                  href={`/blog/${blogPost._id}`}
                   className="text-primary hover:underline "
+                  href={`/blog/${blogPost._id}`}
                 >
                   See More
                 </a>
@@ -92,8 +96,8 @@ const BlogSection = () => {
       {/* More Blogs Button */}
       <div className="text-center my-4">
         <a
-          href="/blog"
           className="bg-gradient-to-tr from-primary to-secondary text-white px-6 py-3 rounded-lg shadow-lg hover:bg-primary-700 transition-colors duration-300"
+          href="/blog"
         >
           More Blogs
         </a>

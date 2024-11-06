@@ -1,9 +1,10 @@
 "use client";
 
-import { useGetBlog } from "@/src/hooks/blog.hook";
-import { TBlogPost } from "@/src/types";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+
+import { useGetBlog } from "@/src/hooks/blog.hook";
+import { TBlogPost } from "@/src/types";
 
 const BlogPage = () => {
   const { handletBlog } = useGetBlog();
@@ -14,11 +15,13 @@ const BlogPage = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       const result = await handletBlog();
+
       if (result) {
         setBlogs(result.data);
       }
       setIsLoading(false);
     };
+
     fetchBlogs();
   }, []);
 
@@ -38,8 +41,8 @@ const BlogPage = () => {
 
       <div className="flex justify-end mb-4">
         <button
-          onClick={handleCreate}
           className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
+          onClick={handleCreate}
         >
           Create Blog
         </button>
@@ -77,14 +80,14 @@ const BlogPage = () => {
                 </td>
                 <td className="py-3 px-4 text-center">
                   <button
-                    onClick={() => handleEdit(blog._id)}
                     className="px-3 py-1 bg-green-500 text-white rounded-md hover:bg-green-600 mr-2"
+                    onClick={() => handleEdit(blog._id)}
                   >
                     Edit
                   </button>
                   <button
-                    onClick={() => handleDelete(blog._id)}
                     className="px-3 py-1 bg-red-500 text-white rounded-md hover:bg-red-600"
+                    onClick={() => handleDelete(blog._id)}
                   >
                     Delete
                   </button>

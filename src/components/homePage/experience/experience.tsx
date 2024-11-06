@@ -1,10 +1,12 @@
 "use client";
 
-import { useGetExperience } from "@/src/hooks/experience.hook";
-import { TExperience } from "@/src/types";
 import { Card, Spacer } from "@nextui-org/react";
 import { useEffect, useState } from "react";
+
 import ExperienceSkeleton from "./experienceSkeleton";
+
+import { TExperience } from "@/src/types";
+import { useGetExperience } from "@/src/hooks/experience.hook";
 
 const Experience: React.FC = () => {
   const { handletExperience } = useGetExperience();
@@ -14,11 +16,13 @@ const Experience: React.FC = () => {
   useEffect(() => {
     const fetchExperience = async () => {
       const result = await handletExperience();
+
       if (result) {
         setExperiences(result.data); // Ensure it sets to an empty array if data is null
       }
       setIsLoading(false);
     };
+
     fetchExperience();
   }, [handletExperience]);
 

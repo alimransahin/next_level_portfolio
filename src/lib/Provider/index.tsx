@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { ThemeProviderProps } from "next-themes/dist/types";
 import { Toaster } from "sonner";
+
 import UserProvider from "@/src/context/UserProvider";
 
 export interface ProvidersProps {

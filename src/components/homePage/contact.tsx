@@ -1,11 +1,8 @@
 "use client";
 import { Mail, Map, Phone } from "lucide-react";
 import Link from "next/link";
-import { useRef } from "react";
 
 const Contact = () => {
-  const form = useRef();
-
   return (
     <div className="max-w-screen-xl mx-auto my-4 " id="contact">
       {/* Header */}
@@ -27,8 +24,8 @@ const Contact = () => {
             <div>
               <h2 className="text-lg font-bold mb-2">Call Me</h2>
               <Link
-                href="mailto:mdalimransahin@gmail.com"
                 className="text-primary text-lg transition-colors"
+                href="mailto:mdalimransahin@gmail.com"
               >
                 mdalimransahin@gmail.com
               </Link>
@@ -40,8 +37,8 @@ const Contact = () => {
             <div>
               <h2 className="text-lg font-bold mb-2">Call Me</h2>
               <Link
-                href="tel:+8801517824146"
                 className="text-primary text-lg transition-colors"
+                href="tel:+8801517824146"
               >
                 +88 01517-824146
               </Link>
@@ -54,8 +51,8 @@ const Contact = () => {
             <div>
               <h2 className="text-lg font-bold mb-2">Location</h2>
               <Link
-                href="https://goo.gl/maps/j3x7t4SKfSuhibTs9"
                 className="text-primary text-lg transition-colors"
+                href="https://goo.gl/maps/j3x7t4SKfSuhibTs9"
               >
                 Narayanganj, Bangladesh
               </Link>
@@ -70,20 +67,20 @@ const Contact = () => {
               {/* Name Input */}
               <div className="form-control">
                 <input
-                  type="text"
-                  placeholder="Your Name"
-                  name="name"
                   className="input input-bordered w-full text-md rounded-lg p-4 text-gray-800 border border-primary-50"
+                  name="name"
+                  placeholder="Your Name"
+                  type="text"
                 />
               </div>
 
               {/* Email Input */}
               <div className="form-control">
                 <input
-                  type="email"
-                  placeholder="Your Email"
-                  name="email"
                   className="input input-bordered w-full text-md rounded-lg p-4 text-gray-800 border border-primary-50"
+                  name="email"
+                  placeholder="Your Email"
+                  type="email"
                 />
               </div>
 
@@ -91,16 +88,16 @@ const Contact = () => {
               <div className="form-control">
                 <textarea
                   className="input input-bordered w-full text-md rounded-lg p-4 text-gray-800 border border-primary-50"
-                  placeholder="Your Message"
                   name="message"
-                ></textarea>
+                  placeholder="Your Message"
+                />
               </div>
 
               {/* Submit Button */}
               <div className="form-control mt-6">
                 <button
-                  type="submit"
                   className="btn bg-gradient-to-r from-primary to-secondary text-white w-full hover:opacity-90 transition-all py-4 rounded-lg"
+                  type="submit"
                 >
                   Send Message
                 </button>

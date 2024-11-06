@@ -1,16 +1,7 @@
 "use client";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  Divider,
-  Image,
-} from "@nextui-org/react";
-
-
+import { Card, CardHeader, CardBody, Divider, Image } from "@nextui-org/react";
 
 const Education = () => {
-
   return (
     <div className=" max-w-screen-xl mx-auto" id="contact">
       <h3

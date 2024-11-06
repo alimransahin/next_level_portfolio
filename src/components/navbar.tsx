@@ -11,16 +11,17 @@ import { Link } from "@nextui-org/link";
 import { link as linkStyles } from "@nextui-org/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
+import { Facebook } from "lucide-react";
+
 import { siteConfig } from "@/src/config/site";
 import { ThemeSwitch } from "@/src/components/theme-switch";
 import { GithubIcon } from "@/src/components/icons";
-import { Facebook } from "lucide-react";
 
 export const Navbar = () => {
   return (
     <NextUINavbar
-      maxWidth="xl"
       className="mx-auto   rounded-b-lg w-full bg-primary-400  fixed top-0 shadow-lg "
+      maxWidth="xl"
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
@@ -34,7 +35,7 @@ export const Navbar = () => {
               <NextLink
                 className={clsx(
                   linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium"
+                  "data-[active=true]:text-primary data-[active=true]:font-medium",
                 )}
                 color="foreground"
                 href={item.href}
