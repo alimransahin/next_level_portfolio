@@ -1,11 +1,13 @@
-import { useState } from "react";
+"use client";
+import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import "quill/dist/quill.snow.css";
 import { Camera } from "lucide-react";
 import axios from "axios";
 import { toast } from "sonner";
-import { useUser } from "@/src/context/UserProvider";
 import envConfig from "../config";
+import { useRouter } from "next/navigation";
+import { useAddBlog } from "../hooks/blog.hook";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
@@ -18,16 +20,24 @@ const toolbarOptions = [
 ];
 
 const QuillEditor = () => {
-  const [description, setDescription] = useState<string>("");
-  const [isPremium, setIsPremium] = useState<boolean>(false);
-  const [image, setImage] = useState<string | undefined>();
-  const [category, setCategory] = useState<string>("");
+  const [title, setTitle] = useState<string>("");
+  const [author, setAuthor] = useState<string>("");
+  const [content, setContent] = useState<string>("");
+  const [imageUrl, setImageUrl] = useState<string | undefined>();
   const [tags, setTags] = useState<string[]>([]);
   const [tagInput, setTagInput] = useState<string>("");
-  const { user } = useUser();
+
+  const { handleAddBlog, isPending, isSuccess } = useAddBlog();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (isSuccess) {
+      router.push("/admin/manage-blog");
+    }
+  }, [isSuccess, router]);
 
   const handleChange = (content: string) => {
-    setDescription(content);
+    setContent(content);
   };
 
   const imgbbApiKey = envConfig.imgbb_api;
@@ -48,7 +58,7 @@ const QuillEditor = () => {
         formData
       );
       const directLink = response.data.data.url;
-      setImage(directLink);
+      setImageUrl(directLink);
       toast.success("Image uploaded successfully");
     } catch (error) {
       toast.error("Error uploading image");
@@ -56,20 +66,16 @@ const QuillEditor = () => {
   };
 
   const handleSubmit = () => {
-    if (!category) {
-      toast.error("Please select a category");
-      return;
+    if (imageUrl) {
+      const blogData = {
+        title,
+        author,
+        content,
+        tags,
+        imageUrl,
+      };
+      handleAddBlog(blogData);
     }
-
-    const postData = {
-      description,
-      category,
-      isPremium,
-      image,
-      tags,
-    };
-    console.log(postData);
-    // handlePost(postData);
   };
 
   const addTag = () => {
@@ -101,24 +107,27 @@ const QuillEditor = () => {
         <input
           type="text"
           placeholder="Blog Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
           className="mb-4 w-full p-2 border border-gray-300 rounded"
         />
-        <div>
+
+        <div className="mb-28 md:mb-20 lg:mb-14">
           <ReactQuill
-            className="rounded-lg h-40 sm:h-60 lg:h-72 mb-4"
+            className="rounded-lg h-40 sm:h-60 lg:h-72 mb-4 block"
             modules={modules}
             placeholder="Write something amazing..."
-            value={description}
+            value={content}
             onChange={handleChange}
           />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div>
             <input
               className="hidden"
               id="fileInput"
-              name="image"
+              name="imageUrl"
               type="file"
               onChange={handleFileChange}
             />
@@ -128,26 +137,32 @@ const QuillEditor = () => {
             >
               <Camera className="mr-2 text-gray-500" /> Attach Photo
             </label>
-            {image && (
+            {imageUrl && (
               <p className="text-sm text-green-600 mt-1">Image attached!</p>
             )}
           </div>
-        </div>
-
-        {/* Tags Input */}
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-2">Tags (max 4)</label>
-          <div className="flex items-center space-x-2">
+          <div>
             <input
               type="text"
-              placeholder="Add a tag"
+              placeholder="Author"
+              value={author}
+              onChange={(e) => setAuthor(e.target.value)}
+              className="mb-4 w-full h-full p-2 border border-gray-300 rounded"
+            />
+          </div>
+        </div>
+        <div className="">
+          <div className="flex items-center space-x-2 ">
+            <input
+              type="text"
+              placeholder="Add a tag (max 4)"
               value={tagInput}
               onChange={(e) => setTagInput(e.target.value)}
-              className="border border-gray-300 rounded p-2 w-full"
+              className="border border-gray-300 rounded  p-2 w-full"
             />
             <button
               onClick={addTag}
-              className="bg-blue-600 text-white px-3 py-2 rounded hover:bg-blue-500 transition"
+              className="bg-blue-600 text-white px-3 py-2  rounded hover:bg-blue-500 transition"
             >
               Add
             </button>
@@ -169,10 +184,8 @@ const QuillEditor = () => {
             ))}
           </div>
         </div>
-
-        {/* Submit Button */}
         <button
-          className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded w-full transition"
+          className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 mt-4 rounded w-full transition"
           onClick={handleSubmit}
         >
           Submit
